@@ -1,3 +1,20 @@
+import Shoe1 from "@/public/bestselling/shoe1.png"
+import Shoe2 from "@/public/features/shoe2.png"
+import Shoe3 from "@/public/features/shoe3.png"
+import shirt1 from "@/public/shirt1.png";
+import nick1 from "@/public/nick1.png";
+import lady from "@/public/ladyshirt.png";
+import nick2 from "@/public/nick2.png";
+import f1 from "@/public/features/shoe1.png";
+import f2 from "@/public/features/shoe2.png";
+import f3 from "@/public/features/shoe3.png";
+import f4 from "@/public/features/shoe4.png";
+import f5 from "@/public/features/shoe5.png";
+import f6 from "@/public/features/shoe6.png";
+import f7 from "@/public/features/shoe7.png";
+import f8 from "@/public/features/shoe8.png";
+import f9 from "@/public/features/shoe9.png";
+import f10 from "@/public/features/shoe10.png";
 import { StaticImageData } from "next/image"
 interface Items {
   id:number
@@ -6,24 +23,6 @@ interface Items {
   title2:string
   price:string
 }
-
-import Shoe1 from "../public/bestselling/shoe1.png"
-import Shoe2 from "../public/bestselling/shoe2.png"
-import Shoe3 from "../public/bestselling/shoe3.png"
-import shirt1 from "../public/shirt1.png";
-import nick1 from "../public/nick1.png";
-import lady from "../public/ladyshirt.png";
-import nick2 from "../public/nick2.png";
-import f1 from "../public/features/shoe1.png";
-import f2 from "../public/features/shoe2.png";
-import f3 from "../public/features/shoe3.png";
-import f4 from "../public/features/shoe4.png";
-import f5 from "../public/features/shoe5.png";
-import f6 from "../public/features/shoe6.png";
-import f7 from "../public/features/shoe7.png";
-import f8 from "../public/features/shoe8.png";
-import f9 from "../public/features/shoe9.png";
-import f10 from "../public/features/shoe10.png";
 
 
 export const airMax:Items[] = [
