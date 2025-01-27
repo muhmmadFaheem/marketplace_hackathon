@@ -7,6 +7,7 @@ import GearUp from "@/components/Gears";
 import Hero from "@/components/Hero";
 import Navigation from "@/components/Navigation";
 import { CarouselSize } from "@/components/BestSell"
+import ProductCards from "./Products/page";
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
     <GearUp/>
     <DontMiss/>
     <Essential/>
+    <ProductCards/>
     <Navigation/>
   </main>
   )
