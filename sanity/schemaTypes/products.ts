@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export const productSchema = {
     name: 'product',
     title: 'Product',
@@ -7,6 +9,16 @@ export const productSchema = {
         name: 'productName',
         title: 'Product Name',
         type: 'string',
+      },
+
+      {
+        name : 'slug',
+        title : 'slug',
+        type : 'slug',
+        options : {
+          source : 'productName'
+        }
+
       },
       {
         name: 'category',

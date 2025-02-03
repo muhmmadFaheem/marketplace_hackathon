@@ -1,47 +1,62 @@
-import React from "react";
-import { createClient } from "@sanity/client";
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
+import { Product } from "@/sanity/type/product";
+import { groq } from "next-sanity";
 import Image from "next/image";
 
-// Sanity client
-const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "ngiqta5f",
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-  useCdn: true,
-  apiVersion: "2021-08-31",
-});
+interface ProductPageProps {
+    params : Promise<{slug : string}>
+}
 
-// Product Details Page
-export default async function ProductPage({ params }: { params: { id: string } }) {
-  const product = await client.fetch(
-    `*[_type == "product" && _id == $id][0]{
-      _id,
-      productName,
-      category,
-      price,
-      description,
-      colors,
-      "imageUrl": image.asset->url
-    }`,
-    { id: params.id }
-  );
+async function getProduct(slug:string) : Promise<Product> {
+    return client.fetch(
+        groq`*[_type == "product" && slug.current == $slug][0]{
+        _id,
+          productName,
+          category,
+          price,
+          description,
+          status,
+          colors,
+          inventory,
+          "imageUrl": image.asset->url
+        
+        }`, {slug}
+    )
+}
 
-  if (!product) return <p>Product not found!</p>;
+export default async function ProductsPage({params} : ProductPageProps){
 
-  return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">{product.productName}</h1>
-      {product.imageUrl && (
-        <Image
-          src={product.imageUrl}
-          alt={product.productName}
-          width={500}
-          height={500}
-          className="rounded-lg"
-        />
-      )}
-      <p className="mt-2 text-gray-600">Category: {product.category}</p>
-      <p className="text-blue-600 text-lg font-bold">${product.price.toFixed(2)}</p>
-      <p className="mt-4 text-gray-700">{product.description}</p>
-    </div>
-  );
+    const {slug} = await params;
+    const product = await getProduct(slug);
+
+    return(
+
+        <div className="max-w-7xl- mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="aspect-square">
+                    {
+                        product.image && (
+                            <Image 
+                            src={urlFor(product.image).url()}
+                            alt = { product.productName}
+                            width = {500}
+                            height = {500}
+                            className = "rounded-lg shadow-md"
+                            />
+                        )
+                    }
+                </div>
+                <div className="flex flex-col gap-8">
+                    <h1 className="text-4xl font-bold">
+                        {product.productName}
+                    </h1>
+                    <p className="text-2xl font-sans">
+                        {product.price}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    )
 }
