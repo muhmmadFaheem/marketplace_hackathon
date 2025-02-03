@@ -5,7 +5,6 @@ export default function Navigation() {
     <nav className="bg-gray-100 py-6">
       <div className="flex justify-center items-center">
         <div className="flex justify-center items-center gap-5 flex-wrap w-[80%]">
-          {/* Icons Section */}
           <div className="flex flex-col w-[15%] max-md:w-full">
             <span className="text-lg font-semibold text-gray-900 mb-3">Icons</span>
             <ul className="space-y-6 text-base text-gray-500">
