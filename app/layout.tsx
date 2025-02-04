@@ -3,7 +3,7 @@ import "./globals.css";
 import Nav from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/Context";
-// import {ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs"
+import {ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,9 +20,9 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <Nav />
-          {/* <ClerkProvider>     */}
+           <ClerkProvider>    
           {children}
-          {/* </ClerkProvider> */}
+           </ClerkProvider> 
           <Footer />
         </body>
       </html>

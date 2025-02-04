@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
-// import { SignInButton } from "@clerk/nextjs";  // ✅ Import Clerk's Sign-In Button
+import { SignInButton } from "@clerk/nextjs";  // ✅ Import Clerk's Sign-In Button
 
 export default function Login() {
   return (
@@ -38,10 +38,10 @@ export default function Login() {
             <p className="text-[#BCBCBC] text-[12px]">and <u>Terms of Use</u></p>
           </div>
 
-          {/* ✅ Clerk Sign-In Button */}
-          {/* <SignInButton mode="modal">
+          ✅ Clerk Sign-In Button 
+           <SignInButton mode="modal">
             <Button className="w-80 rounded-sm my-6">SIGN IN</Button>
-          </SignInButton> */}
+          </SignInButton>
 
           <p className="text-[#BCBCBC] text-[12px]">
             Not a Member? <u className="text-black"><Link href="/joinus">Join us</Link></u>
