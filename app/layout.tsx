@@ -3,7 +3,8 @@ import "./globals.css";
 import Nav from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/Context";
-import {ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs"
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Create Next App",
